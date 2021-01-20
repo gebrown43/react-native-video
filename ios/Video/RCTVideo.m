@@ -65,6 +65,7 @@ static int const RCTVideoUnset = -1;
   BOOL _paused;
   BOOL _repeat;
   BOOL _allowsExternalPlayback;
+  BOOL _isExternalPlaybackActive;
   NSArray * _textTracks;
   NSDictionary * _selectedTextTrack;
   NSDictionary * _selectedAudioTrack;
@@ -116,6 +117,7 @@ static int const RCTVideoUnset = -1;
     _preventsDisplaySleepDuringVideoPlayback = true;
     _preferredForwardBufferDuration = 0.0f;
     _allowsExternalPlayback = YES;
+    _isExternalPlaybackActive = YES;
     _playWhenInactive = false;
     _pictureInPicture = false;
     _ignoreSilentSwitch = @"inherit"; // inherit, ignore, obey
@@ -869,6 +871,12 @@ static int const RCTVideoUnset = -1;
   _player.allowsExternalPlayback = _allowsExternalPlayback;
 }
 
+- (void)setIsExternalPlaybackActive:(BOOL)isExternalPlaybackActive
+{
+  _isExternalPlaybackActive = isExternalPlaybackActive;
+  _player.isExternalPlaybackActive = _isExternalPlaybackActive;
+}
+
 - (void)setPlayWhenInactive:(BOOL)playWhenInactive
 {
   _playWhenInactive = playWhenInactive;
@@ -1084,6 +1092,7 @@ static int const RCTVideoUnset = -1;
   [self setPaused:_paused];
   [self setControls:_controls];
   [self setAllowsExternalPlayback:_allowsExternalPlayback];
+  [self setIsExternalPlaybackActive:_isExternalPlaybackActive];
 }
 
 - (void)setRepeat:(BOOL)repeat {
