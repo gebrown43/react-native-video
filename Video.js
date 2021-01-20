@@ -419,7 +419,6 @@ Video.propTypes = {
   repeat: PropTypes.bool,
   automaticallyWaitsToMinimizeStalling: PropTypes.bool,
   allowsExternalPlayback: PropTypes.bool,
-  isExternalPlaybackActive: PropTypes.bool,
   usesExternalPlaybackWhileExternalScreenIsActive: PropTypes.bool,
   selectedAudioTrack: PropTypes.shape({
     type: PropTypes.string.isRequired,

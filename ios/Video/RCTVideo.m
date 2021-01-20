@@ -65,7 +65,6 @@ static int const RCTVideoUnset = -1;
   BOOL _paused;
   BOOL _repeat;
   BOOL _allowsExternalPlayback;
-  BOOL _isExternalPlaybackActive;
   BOOL _usesExternalPlaybackWhileExternalScreenIsActive;
   NSArray * _textTracks;
   NSDictionary * _selectedTextTrack;
@@ -118,7 +117,6 @@ static int const RCTVideoUnset = -1;
     _preventsDisplaySleepDuringVideoPlayback = true;
     _preferredForwardBufferDuration = 0.0f;
     _allowsExternalPlayback = YES;
-    _isExternalPlaybackActive = YES;
     _usesExternalPlaybackWhileExternalScreenIsActive = NO;
     _playWhenInactive = false;
     _pictureInPicture = false;
@@ -873,12 +871,6 @@ static int const RCTVideoUnset = -1;
   _player.allowsExternalPlayback = _allowsExternalPlayback;
 }
 
-- (void)setIsExternalPlaybackActive:(BOOL)isExternalPlaybackActive
-{
-  _isExternalPlaybackActive = isExternalPlaybackActive;
-  _player.isExternalPlaybackActive = _isExternalPlaybackActive;
-}
-
 - (void)setUsesExternalPlayback:(BOOL)usesExternalPlaybackWhileExternalScreenIsActive
 {
   _usesExternalPlaybackWhileExternalScreenIsActive = usesExternalPlaybackWhileExternalScreenIsActive;
@@ -1100,7 +1092,6 @@ static int const RCTVideoUnset = -1;
   [self setPaused:_paused];
   [self setControls:_controls];
   [self setAllowsExternalPlayback:_allowsExternalPlayback];
-  [self setIsExternalPlaybackActive:_isExternalPlaybackActive];
   [self setUsesExternalPlayback:_usesExternalPlaybackWhileExternalScreenIsActive];
 }
 
