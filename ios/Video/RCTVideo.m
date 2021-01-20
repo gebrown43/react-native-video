@@ -871,7 +871,7 @@ static int const RCTVideoUnset = -1;
   _player.allowsExternalPlayback = _allowsExternalPlayback;
 }
 
-- (void)setUsesExternalPlayback:(BOOL)usesExternalPlaybackWhileExternalScreenIsActive
+- (void)setUsesExternalPlaybackWhileExternalScreenIsActive:(BOOL)usesExternalPlaybackWhileExternalScreenIsActive
 {
   _usesExternalPlaybackWhileExternalScreenIsActive = usesExternalPlaybackWhileExternalScreenIsActive;
   _player.usesExternalPlaybackWhileExternalScreenIsActive = _usesExternalPlaybackWhileExternalScreenIsActive;
@@ -1092,7 +1092,7 @@ static int const RCTVideoUnset = -1;
   [self setPaused:_paused];
   [self setControls:_controls];
   [self setAllowsExternalPlayback:_allowsExternalPlayback];
-  [self setUsesExternalPlayback:_usesExternalPlaybackWhileExternalScreenIsActive];
+  [self setUsesExternalPlaybackWhileExternalScreenIsActive:_usesExternalPlaybackWhileExternalScreenIsActive];
 }
 
 - (void)setRepeat:(BOOL)repeat {
